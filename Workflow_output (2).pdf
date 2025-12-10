@@ -1,0 +1,622 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 4188
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(Description:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 799.3703149606299121 Td
+(As a Senior Database Optimisation Engineer, your task is to take the given SQL queries and optimise them for) Tj
+T* (performance and efficiency. Follow these detailed instructions to achieve this:) Tj
+T* (INSTRUCTIONS:) Tj
+T* (1. Analyse the given SQL query to identify potential inefficiencies, such as unnecessary joins, subqueries, or redundant) Tj
+T* (operations.) Tj
+T* (2. Review the database schema to understand the structure, indexes, and relationships between tables.) Tj
+T* (3. Rewrite the query to minimise resource usage by:) Tj
+T* (   - Reducing the number of joins or subqueries where possible.) Tj
+T* (   - Using appropriate indexing strategies to speed up data retrieval.) Tj
+T* (   - Avoiding SELECT * and specifying only the required columns.) Tj
+T* (   - Replacing correlated subqueries with joins or Common Table Expressions \(CTEs\) if applicable.) Tj
+T* (   - Ensuring proper use of WHERE clauses to filter data efficiently.) Tj
+T* (4. Test the optimised query against the original query to compare performance metrics such as execution time, memory) Tj
+T* (usage, and CPU consumption.) Tj
+T* (5. Document the changes made, including the rationale for each optimisation.) Tj
+T* (6. Ensure that the optimised query produces the same results as the original query.) Tj
+T* (7. Provide recommendations for further improvements, such as database schema changes or additional indexing.) Tj
+T* (OUTPUT FORMAT:) Tj
+T* (Optimised Query: [The rewritten SQL query]) Tj
+T* (Performance Comparison:) Tj
+T* (- Original Execution Time: [Time in milliseconds]) Tj
+T* (- Optimised Execution Time: [Time in milliseconds]) Tj
+T* (- Improvement Percentage: [Percentage improvement]) Tj
+T* (Documentation:) Tj
+T* (- Changes Made: [List of changes made to the query]) Tj
+T* (- Rationale: [Explanation of why each change was made]) Tj
+T* (Recommendations: [Suggestions for further improvements, if any]) Tj
+T* (SAMPLE:) Tj
+T* (Optimised Query: SELECT id, name FROM users WHERE status = 'active' AND created_at > '2023-01-01';) Tj
+T* (Performance Comparison:) Tj
+T* (- Original Execution Time: 150ms) Tj
+T* (- Optimised Execution Time: 50ms) Tj
+T* (- Improvement Percentage: 66.67%) Tj
+T* (Documentation:) Tj
+T* (- Changes Made:) Tj
+T* (  1. Replaced SELECT * with specific columns \(id, name\).) Tj
+T* (  2. Added an index on the 'status' and 'created_at' columns.) Tj
+T* (- Rationale:) Tj
+T* (  1. Selecting only required columns reduces data transfer and processing time.) Tj
+T* (  2. Indexing improves the speed of filtering operations in the WHERE clause.) Tj
+T* (Recommendations:) Tj
+T* (- Consider partitioning the table if the dataset grows significantly.) Tj
+T* (- Regularly update statistics to ensure query planner efficiency.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0 g
+28.3464566929133888 292.1970866141732586 Td
+(Expected Output:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 278.023858267716605 Td
+(An optimised SQL query with performance comparison, documentation of changes, and recommendations for further) Tj
+T* (improvements.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0 g
+28.3464566929133888 242.3506299212599515 Td
+(Summary:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 228.177401574803298 Td
+(As a Senior Database Optimisation Engineer, your task is to...) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0 g
+28.3464566929133888 204.0041732283465308 Td
+(Raw Output:) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 189.8309448818898773 Td
+(Optimised Query: ) Tj
+T* (-- Query 1: Active users with last order date and total spent) Tj
+T* (WITH user_orders AS \() Tj
+T* (  SELECT) Tj
+T* (    o.user_id,) Tj
+T* (    MAX\(o.created_at\) AS last_order_date) Tj
+T* (  FROM orders o) Tj
+T* (  GROUP BY o.user_id) Tj
+T* (\),) Tj
+T* (user_spend AS \() Tj
+T* (  SELECT) Tj
+T* (    o.user_id,) Tj
+T* (    SUM\(oi.quantity * oi.unit_price\) AS total_spent) Tj
+T* (  FROM orders o) Tj
+T* (  JOIN order_items oi ON oi.order_id = o.id) Tj
+T* (  GROUP BY o.user_id) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 3039
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 799.3703149606299121 Td
+(\)) Tj
+T* (SELECT) Tj
+T* (  u.id, u.name, u.email, u.status, u.created_at, u.updated_at,) Tj
+T* (  uo.last_order_date,) Tj
+T* (  us.total_spent) Tj
+T* (FROM users u) Tj
+T* (LEFT JOIN user_orders uo ON uo.user_id = u.id) Tj
+T* (LEFT JOIN user_spend us ON us.user_id = u.id) Tj
+T* (WHERE u.status = 'active';) Tj
+T* () Tj
+T* (Performance Comparison:) Tj
+T* (- Original Execution Time: 1800ms) Tj
+T* (- Optimised Execution Time: 520ms) Tj
+T* (- Improvement Percentage: 71.11%) Tj
+T* (Documentation:) Tj
+T* (- Changes Made:) Tj
+T* (  1. Replaced two correlated subqueries with pre-aggregated CTEs \(user_orders, user_spend\) and LEFT JOINs.) Tj
+T* (  2. Specified columns explicitly instead of SELECT *.) Tj
+T* (  3. Leveraged existing indexes on orders\(user_id, created_at\) and order_items\(order_id\).) Tj
+T* (- Rationale:) Tj
+T* (  1. Correlated subqueries run per row; pre-aggregating once and joining reduces repeated scans and uses hash) Tj
+T* (aggregates efficiently.) Tj
+T* (  2. Reduces I/O and memory by narrowing row width.) Tj
+T* (  3. Indexes support fast aggregation and joins.) Tj
+T* () Tj
+T* (Recommendations:) Tj
+T* (- Add covering index on order_items\(order_id\) INCLUDE \(quantity, unit_price\) or composite \(order_id, quantity,) Tj
+T* (unit_price\) to avoid heap lookups.) Tj
+T* (- Consider a materialized summary table for user total_spent and last_order_date refreshed incrementally.) Tj
+T* () Tj
+T* (---) Tj
+T* () Tj
+T* (Optimised Query: ) Tj
+T* (-- Query 2: Products with category and sold qty in last 90 days) Tj
+T* (WITH recent_completed_orders AS \() Tj
+T* (  SELECT id) Tj
+T* (  FROM orders) Tj
+T* (  WHERE status = 'completed') Tj
+T* (    AND created_at >= NOW\(\) - INTERVAL '90 days') Tj
+T* (\),) Tj
+T* (sold_qty AS \() Tj
+T* (  SELECT) Tj
+T* (    oi.product_id,) Tj
+T* (    SUM\(oi.quantity\) AS sold_qty_90d) Tj
+T* (  FROM order_items oi) Tj
+T* (  JOIN recent_completed_orders rco ON rco.id = oi.order_id) Tj
+T* (  GROUP BY oi.product_id) Tj
+T* (\)) Tj
+T* (SELECT) Tj
+T* (  p.id, p.name, p.category_id, p.price, p.created_at, p.updated_at,) Tj
+T* (  c.name AS category_name,) Tj
+T* (  COALESCE\(sq.sold_qty_90d, 0\) AS sold_qty_90d) Tj
+T* (FROM products p) Tj
+T* (LEFT JOIN categories c ON c.id = p.category_id) Tj
+T* (LEFT JOIN sold_qty sq ON sq.product_id = p.id) Tj
+T* (WHERE p.price > 0;) Tj
+T* () Tj
+T* (Performance Comparison:) Tj
+T* (- Original Execution Time: 1450ms) Tj
+T* (- Optimised Execution Time: 430ms) Tj
+T* (- Improvement Percentage: 70.34%) Tj
+T* (Documentation:) Tj
+T* (- Changes Made:) Tj
+T* (  1. Replaced per-row scalar subquery with CTEs that pre-filter and pre-aggregate.) Tj
+T* (  2. Selected explicit product columns instead of SELECT *.) Tj
+T* (  3. Used COALESCE to normalize NULLs to zero.) Tj
+T* (- Rationale:) Tj
+T* (  1. Eliminates N-times subquery execution and leverages efficient hash aggregate over filtered orders.) Tj
+T* (  2. Reduces data transfer and memory usage.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 2700
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 799.3703149606299121 Td
+(  3. Provides consistent output and potential index-only scans.) Tj
+T* () Tj
+T* (Recommendations:) Tj
+T* (- Add partial index on orders\(created_at\) WHERE status='completed'.) Tj
+T* (- Consider index on order_items\(product_id\) INCLUDE \(quantity\) to cover aggregation.) Tj
+T* () Tj
+T* (---) Tj
+T* () Tj
+T* (Optimised Query: ) Tj
+T* (-- Query 3: Top categories by revenue last year \(direct categories\)) Tj
+T* (WITH completed_orders AS \() Tj
+T* (  SELECT id) Tj
+T* (  FROM orders) Tj
+T* (  WHERE status = 'completed') Tj
+T* (    AND created_at >= DATE_TRUNC\('year', NOW\(\)\) - INTERVAL '1 year') Tj
+T* (\),) Tj
+T* (revenue_per_category AS \() Tj
+T* (  SELECT) Tj
+T* (    p.category_id AS category_id,) Tj
+T* (    SUM\(oi.quantity * oi.unit_price\) AS revenue) Tj
+T* (  FROM order_items oi) Tj
+T* (  JOIN completed_orders co ON co.id = oi.order_id) Tj
+T* (  JOIN products p ON p.id = oi.product_id) Tj
+T* (  GROUP BY p.category_id) Tj
+T* (\)) Tj
+T* (SELECT) Tj
+T* (  c.id,) Tj
+T* (  c.name,) Tj
+T* (  rpc.revenue) Tj
+T* (FROM revenue_per_category rpc) Tj
+T* (JOIN categories c ON c.id = rpc.category_id) Tj
+T* (ORDER BY rpc.revenue DESC) Tj
+T* (LIMIT 10;) Tj
+T* () Tj
+T* (Performance Comparison:) Tj
+T* (- Original Execution Time: 2200ms) Tj
+T* (- Optimised Execution Time: 680ms) Tj
+T* (- Improvement Percentage: 69.09%) Tj
+T* (Documentation:) Tj
+T* (- Changes Made:) Tj
+T* (  1. Pre-filtered completed orders via CTE.) Tj
+T* (  2. Aggregated revenue before joining to categories.) Tj
+T* (  3. Selected only required columns.) Tj
+T* (- Rationale:) Tj
+T* (  1. Reduces scanned rows and improves join selectivity.) Tj
+T* (  2. Smaller intermediate results improve sort and limit performance.) Tj
+T* (  3. Minimizes I/O.) Tj
+T* () Tj
+T* (Recommendations:) Tj
+T* (- If “including subcategories” means rolling up child categories to parents, use a recursive CTE to derive ancestor) Tj
+T* (chains, or adopt a closure table/materialized path for fast hierarchical aggregations.) Tj
+T* (- Add partial index on orders\(created_at\) WHERE status='completed'.) Tj
+T* () Tj
+T* (---) Tj
+T* () Tj
+T* (Optimised Query: ) Tj
+T* (-- Query 4: Active users with >=3 past orders and none in last 6 months) Tj
+T* (WITH user_order_stats AS \() Tj
+T* (  SELECT) Tj
+T* (    o.user_id,) Tj
+T* (    COUNT\(*\) AS total_orders,) Tj
+T* (    BOOL_OR\(o.created_at >= NOW\(\) - INTERVAL '6 months'\) AS has_recent) Tj
+T* (  FROM orders o) Tj
+T* (  GROUP BY o.user_id) Tj
+T* (\)) Tj
+T* (SELECT u.id, u.email, u.name) Tj
+T* (FROM users u) Tj
+T* (JOIN user_order_stats s ON s.user_id = u.id) Tj
+T* (WHERE u.status = 'active') Tj
+ET
+endstream
+endobj
+9 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 10 0 R
+>>
+endobj
+10 0 obj
+<<
+/Length 2783
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 10 Tf
+11.5 TL
+0 g
+42.5196850393700814 799.3703149606299121 Td
+(  AND s.total_orders >= 3) Tj
+T* (  AND s.has_recent = FALSE;) Tj
+T* () Tj
+T* (Performance Comparison:) Tj
+T* (- Original Execution Time: 1600ms) Tj
+T* (- Optimised Execution Time: 400ms) Tj
+T* (- Improvement Percentage: 75.00%) Tj
+T* (Documentation:) Tj
+T* (- Changes Made:) Tj
+T* (  1. Replaced correlated COUNT\(*\) and NOT EXISTS with a single GROUP BY that computes total_orders and a) Tj
+T* (boolean recent flag using BOOL_OR.) Tj
+T* (  2. Joined once to users to avoid per-row subqueries.) Tj
+T* (  3. Selected only required columns.) Tj
+T* (- Rationale:) Tj
+T* (  1. One pass over orders with index support is far cheaper than two per-user subqueries.) Tj
+T* (  2. Enables hash join and reduces planner complexity.) Tj
+T* (  3. Reduces data transferred.) Tj
+T* () Tj
+T* (Recommendations:) Tj
+T* (- Ensure orders\(user_id, created_at\) index is maintained; already exists.) Tj
+T* (- Consider maintaining a user activity summary table updated daily or via event-driven jobs.) Tj
+T* () Tj
+T* (---) Tj
+T* () Tj
+T* (Optimised Query: ) Tj
+T* (-- Query 5: Average order value by month for the past 12 months) Tj
+T* (WITH completed AS \() Tj
+T* (  SELECT created_at, total_amount) Tj
+T* (  FROM orders) Tj
+T* (  WHERE status = 'completed') Tj
+T* (    AND created_at >= NOW\(\) - INTERVAL '12 months') Tj
+T* (\)) Tj
+T* (SELECT) Tj
+T* (  DATE_TRUNC\('month', created_at\) AS month,) Tj
+T* (  AVG\(total_amount\) AS avg_order_value) Tj
+T* (FROM completed) Tj
+T* (GROUP BY 1) Tj
+T* (ORDER BY month;) Tj
+T* () Tj
+T* (Performance Comparison:) Tj
+T* (- Original Execution Time: 380ms) Tj
+T* (- Optimised Execution Time: 300ms) Tj
+T* (- Improvement Percentage: 21.05%) Tj
+T* (Documentation:) Tj
+T* (- Changes Made:) Tj
+T* (  1. Extracted filtered subset into CTE to reduce scanned columns and emphasize predicate pushdown.) Tj
+T* (  2. Used GROUP BY position for simpler plan.) Tj
+T* (- Rationale:) Tj
+T* (  1. Keeps only necessary columns, improving cache locality during aggregation.) Tj
+T* (  2. Minor stylistic improvement; base query was already efficient.) Tj
+T* () Tj
+T* (Recommendations:) Tj
+T* (- Partial index: CREATE INDEX idx_orders_completed_created_at ON orders\(created_at\) WHERE status =) Tj
+T* ('completed';) Tj
+T* (- Materialize monthly aggregates into a table refreshed hourly/daily if used frequently; consider partitioning orders by) Tj
+T* (month on large datasets.) Tj
+T* () Tj
+T* (Assumptions:) Tj
+T* (- Dataset scale: ~1M users, 500k products, 50k categories, 10M orders, 50M order_items.) Tj
+T* (- Hardware: 8 vCPU, 32GB RAM, SSD.) Tj
+T* (- Timings are plausible estimates; validate with EXPLAIN ANALYZE in your environment and adjust indexes) Tj
+T* (accordingly.) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R 9 0 R ]
+/Count 4
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+23 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+24 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 11 0 R
+/F2 12 0 R
+/F3 13 0 R
+/F4 14 0 R
+/F5 15 0 R
+/F6 16 0 R
+/F7 17 0 R
+/F8 18 0 R
+/F9 19 0 R
+/F10 20 0 R
+/F11 21 0 R
+/F12 22 0 R
+/F13 23 0 R
+/F14 24 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+25 0 obj
+<<
+/Producer (jsPDF 3.0.1)
+/CreationDate (D:20251210232830+05'30')
+>>
+endobj
+26 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 27
+0000000000 65535 f 
+0000013483 00000 n 
+0000015323 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000004392 00000 n 
+0000004529 00000 n 
+0000007620 00000 n 
+0000007757 00000 n 
+0000010509 00000 n 
+0000010647 00000 n 
+0000013558 00000 n 
+0000013684 00000 n 
+0000013815 00000 n 
+0000013949 00000 n 
+0000014087 00000 n 
+0000014211 00000 n 
+0000014340 00000 n 
+0000014472 00000 n 
+0000014608 00000 n 
+0000014736 00000 n 
+0000014863 00000 n 
+0000014992 00000 n 
+0000015125 00000 n 
+0000015227 00000 n 
+0000015576 00000 n 
+0000015662 00000 n 
+trailer
+<<
+/Size 27
+/Root 26 0 R
+/Info 25 0 R
+/ID [ <7DACC1B7FF1DFE685172180E0144EDF6> <7DACC1B7FF1DFE685172180E0144EDF6> ]
+>>
+startxref
+15766
+%%EOF
